@@ -14,8 +14,6 @@ Future<List<Item>> fetchItem() async {
       await http.get(Uri.parse("http://10.0.2.2:8080/announcements"));
 
   if (response.statusCode == 200) {
-    final test = parseItems(response.body);
-    test.map((e) => print(e.imageUrl.first)).toList();
     return parseItems(response.body);
   } else {
     throw Exception('Failed to load item');

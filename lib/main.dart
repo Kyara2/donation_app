@@ -1,3 +1,4 @@
+import 'package:donation_app/view_item_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'item.dart';
@@ -47,8 +48,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return FutureBuilder<List<Item>>(
       future: fetchItem(),
       builder: (context, snapshot) {
-        print(snapshot.data![0].imageUrl[0]);
         if (snapshot.hasData) {
+          print(snapshot.data![0].imageUrl[0]);
           return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (BuildContext context, int index) {
@@ -56,13 +57,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   child: Column(
                     children: <Widget>[
                       Image.network(
-                        snapshot.data![index].imageUrl[1],
+                        snapshot.data![index].imageUrl[0],
                         fit: BoxFit.cover,
                         height: 150,
                       ),
                       ListTile(
                         title: Text(snapshot.data![index].title),
-                        subtitle: Text(snapshot.data![index].description),
+                        subtitle: Text(snapshot.data![index].description), 
+                        onTap: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => Viewitem(item: snapshot.data![index])));
+                        },
                       ),
                     ],
                   ),
