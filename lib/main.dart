@@ -78,33 +78,37 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: 100,
-          child: CarouselSlider(
-            items: [
-              Container(
-                width: double.infinity,
-                child: Image.network(
-                  "https://via.placeholder.com/100x100",
-                  fit: BoxFit.cover,
+          child: Container(
+            width: double.infinity,
+            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width),
+            child: CarouselSlider(
+              items: [
+                SizedBox(
+                  width: double.infinity,
+                  child: Image.network(
+                    "https://via.placeholder.com/100x100",
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Container(
-                width: double.infinity,
-                child: Image.network(
-                  "https://via.placeholder.com/100x100",
-                  fit: BoxFit.cover,
+                SizedBox(
+                  width: double.infinity,
+                  child: Image.network(
+                    "https://via.placeholder.com/100x100",
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              Container(
-                width: double.infinity,
-                child: Image.network(
-                  "https://via.placeholder.com/100x100",
-                  fit: BoxFit.cover,
+                SizedBox(
+                  width: double.infinity,
+                  child: Image.network(
+                    "https://via.placeholder.com/100x100",
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-            ],
-            options: CarouselOptions(),
+              ],
+              options: CarouselOptions(),
+            ),
           ),
         ),
         Expanded(
