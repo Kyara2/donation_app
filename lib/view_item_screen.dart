@@ -5,6 +5,8 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:donation_app/utils.dart';
 
+import 'chat.dart';
+
 class Viewitem extends StatelessWidget {
   final Item item;
   const Viewitem({
@@ -27,7 +29,22 @@ class Viewitem extends StatelessWidget {
           ListTile(
             title: Text(item.title),
             subtitle: Text(item.description),
+
           ),
+          Text(item.address),
+          Text(item.postalCode),
+          Text(item.user),
+          ElevatedButton(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            ),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      ChatPage(item: item.user)));
+            },
+            child: Text('Tenho interesse'),
+          )
         ],
       ),
     );;

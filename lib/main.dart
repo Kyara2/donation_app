@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'item.dart';
 import 'loading_screen.dart';
 import 'my_app.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 void main() {
   runApp(const LoadingScreen());
@@ -29,9 +30,34 @@ class LoadingScreenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter ListView'),
+          title: const Text('IDonate'),
         ),
         body: const MyStatefulWidget());
+  }
+}
+
+class CarouselWidget extends StatelessWidget {
+  const CarouselWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider(
+      options: CarouselOptions(height: 10.0),
+      items: [1, 2, 3, 4, 5].map((i) {
+        return Builder(
+          builder: (BuildContext context) {
+            return Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                decoration: const BoxDecoration(color: Colors.amber),
+                child: Text(
+                  'text $i',
+                  style: const TextStyle(fontSize: 10.0),
+                ));
+          },
+        );
+      }).toList(),
+    );
   }
 }
 
@@ -40,6 +66,7 @@ class MyStatefulWidget extends StatefulWidget {
 
   @override
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  CarouselWidget createSlider() => CarouselWidget();
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
@@ -49,7 +76,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       future: fetchItem(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          print(snapshot.data![0].imageUrl[0]);
+
           return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (BuildContext context, int index) {
@@ -63,9 +90,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       ),
                       ListTile(
                         title: Text(snapshot.data![index].title),
-                        subtitle: Text(snapshot.data![index].description), 
-                        onTap: (){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => Viewitem(item: snapshot.data![index])));
+                        subtitle: Text(snapshot.data![index].description),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  Viewitem(item: snapshot.data![index])));
                         },
                       ),
                     ],

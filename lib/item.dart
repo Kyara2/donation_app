@@ -11,7 +11,7 @@ List<Item> parseItems(String responseBody) {
 
 Future<List<Item>> fetchItem() async {
   final response =
-      await http.get(Uri.parse("http://10.0.2.2:8080/announcements"));
+      await http.get(Uri.parse("http://192.168.0.103:8080/announcements"));
 
   if (response.statusCode == 200) {
     return parseItems(response.body);
@@ -24,11 +24,19 @@ class Item {
   final String title;
   final String description;
   final List<String> imageUrl;
+  final String address;
+  final String postalCode;
+  final String user;
+  final String id;
 
   const Item({
     required this.title,
     required this.description,
     required this.imageUrl,
+    required this.postalCode,
+    required this.user,
+    required this.id,
+    required this.address
   });
 
   factory Item.fromJson(Map<String, dynamic> json) {
@@ -36,6 +44,11 @@ class Item {
       title: json['name'],
       description: json['description'],
       imageUrl: List<String>.from(json["images"].map((x) => x)),
+      address: json['address'],
+      postalCode: json['postal_code'],
+      user: json['user'],
+      id: json['id']
+
     );
   }
 }
