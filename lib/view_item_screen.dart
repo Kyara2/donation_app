@@ -17,34 +17,40 @@ class Viewitem extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> images=[];
     images.add(item.imageUrl.first);
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Image.network(
-            images.first,
-            fit: BoxFit.cover,
-            height: 150,
-          ),
-          ListTile(
-            title: Text(item.title),
-            subtitle: Text(item.description),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('IDonate'),
 
-          ),
-          Text(item.address),
-          Text(item.postalCode),
-          Text(item.user),
-          ElevatedButton(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+      ),
+      body: Card(
+        child: Column(
+          children: <Widget>[
+            Image.network(
+              images.first,
+              fit: BoxFit.cover,
+              height: 150,
             ),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      ChatPage(item: item.user)));
-            },
-            child: const Text('Tenho interesse'),
-          )
-        ],
+            ListTile(
+              title: Text(item.title),
+              subtitle: Text(item.description),
+
+            ),
+            Text(item.address),
+            Text(item.postalCode),
+            Text(item.user),
+            ElevatedButton(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        ChatPage(item: item.user)));
+              },
+              child: const Text('Tenho interesse'),
+            )
+          ],
+        ),
       ),
     );
   }
