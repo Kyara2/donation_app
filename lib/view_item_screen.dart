@@ -1,7 +1,6 @@
 import 'package:donation_app/item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:donation_app/utils.dart';
 
@@ -43,10 +42,10 @@ class Viewitem extends StatelessWidget {
                   builder: (context) =>
                       ChatPage(item: item.user)));
             },
-            child: Text('Tenho interesse'),
+            child: const Text('Tenho interesse'),
           )
         ],
       ),
-    );;
+    );
   }
 }
