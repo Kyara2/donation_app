@@ -27,26 +27,23 @@ class Item {
   final String user;
   final String id;
 
-  const Item({
-    required this.title,
-    required this.description,
-    required this.imageUrl,
-    required this.postalCode,
-    required this.user,
-    required this.id,
-    required this.address
-  });
+  const Item(
+      {required this.title,
+      required this.description,
+      required this.imageUrl,
+      required this.postalCode,
+      required this.user,
+      required this.id,
+      required this.address});
 
   factory Item.fromJson(Map<String, dynamic> json) {
     return Item(
-      title: json['name'],
-      description: json['description'],
-      imageUrl: List<String>.from(json["images"].map((x) => x)),
-      address: json['address'],
-      postalCode: json['postal_code'],
-      user: json['user'],
-      id: json['id']
-
-    );
+        title: json['name'],
+        description: json['description'],
+        imageUrl: List<String>.from(json["images"].map((x) => x)),
+        address: json['address'],
+        postalCode: json['postal_code'],
+        user: json['user'],
+        id: json['id']);
   }
 }

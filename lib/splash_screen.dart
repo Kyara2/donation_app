@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
-
 import 'my_app.dart';
 
-class LoadingScreen extends StatefulWidget {
-  const LoadingScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  LoadingScreenState createState() => LoadingScreenState();
-
+  SplashScreenState createState() => SplashScreenState();
 }
 
-class LoadingScreenState extends State<LoadingScreen> {
+class SplashScreenState extends State<SplashScreen> {
   Future<Widget> _loadApp() async {
-    // Perform actual app loading here
-    // For example, fetching data from a server
-    //var data = await fetchDataFromServer();
     await Future.delayed(const Duration(seconds: 2));
-    return const MyApp(); //Here
+    return const MyApp();
   }
-
 
   @override
   Widget build(BuildContext context) {

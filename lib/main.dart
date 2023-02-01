@@ -1,4 +1,4 @@
-import 'package:donation_app/loading_screen.dart';
+import 'package:donation_app/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,6 @@ void main() {
           titleLarge: TextStyle(color: Colors.white),
           titleSmall: TextStyle(color: Colors.white),
         )),
-    home: const LoadingScreen(),
+    home: const SplashScreen(),
   ));
 }
