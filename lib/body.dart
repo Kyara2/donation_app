@@ -1,6 +1,7 @@
 import 'item.dart';
 import 'package:donation_app/item_detail.dart';
 import 'package:flutter/material.dart';
+import 'categories.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -10,74 +11,33 @@ class Body extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          alignment: Alignment.topCenter,
-          height: 100,
+  alignment: Alignment.topCenter,
+  height: 100,
+  child: Container(
+    alignment: Alignment.topCenter,
+    width: double.infinity,
+    child: ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: categories.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: const EdgeInsets.all(4.0),
           child: Container(
-            alignment: Alignment.topCenter,
-            width: double.infinity,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Container(
-                    height: double.infinity,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.indigo[300],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: Text("Category 1"),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Container(
-                    height: double.infinity,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.indigo[300],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: Text("Category 2"),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Container(
-                    height: double.infinity,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.indigo[300],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: Text("Category 3"),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Container(
-                    height: double.infinity,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.indigo[300],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Center(
-                      child: Text("Category 4"),
-                    ),
-                  ),
-                ),
-              ],
+            height: double.infinity,
+            width: 100,
+            decoration: BoxDecoration(
+              color: Colors.indigo[300],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Text(categories[index]),
             ),
           ),
-        ),
+        );
+      },
+    ),
+  ),
+),
         Expanded(
           child: FutureBuilder<List<Item>>(
             future: fetchItem(),
