@@ -11,33 +11,46 @@ class Body extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-  alignment: Alignment.topCenter,
-  height: 100,
-  child: Container(
-    alignment: Alignment.topCenter,
-    width: double.infinity,
-    child: ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: categories.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Padding(
-          padding: const EdgeInsets.all(4.0),
+          alignment: Alignment.topCenter,
+          height: 100,
           child: Container(
-            height: double.infinity,
-            width: 100,
-            decoration: BoxDecoration(
-              color: Colors.indigo[300],
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-              child: Text(categories[index]),
+            alignment: Alignment.topCenter,
+            width: double.infinity,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: categories.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Container(
+                      height: double.infinity,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        color: Colors.indigo[300],
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                          categories[index].icon,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          categories[index].name,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                      ),
+                    ));
+              },
             ),
           ),
-        );
-      },
-    ),
-  ),
-),
+        ),
         Expanded(
           child: FutureBuilder<List<Item>>(
             future: fetchItem(),

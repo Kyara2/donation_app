@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 List<Item> parseItems(String responseBody) {
-  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
+  final responseBodyUTF8 = utf8.decode(responseBody.runes.toList());
+  final parsed = json.decode(responseBodyUTF8).cast<Map<String, dynamic>>();
   return parsed.map<Item>((json) => Item.fromJson(json)).toList();
 }
 
