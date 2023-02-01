@@ -1,7 +1,7 @@
 import 'item.dart';
 import 'package:donation_app/item_detail.dart';
 import 'package:flutter/material.dart';
-import 'categories.dart';
+import 'category.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
