@@ -1,4 +1,4 @@
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart' show Chat;
 import 'dart:convert';
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
