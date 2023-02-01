@@ -9,7 +9,7 @@ List<Category> parseItems(String responseBody) {
 
 Future<List<Category>> fetchItem() async {
   final response =
-      await http.get(Uri.parse("http://192.168.0.103:8080/category"));
+      await http.get(Uri.parse("http://192.168.1.9:8080/category"));
 
   if (response.statusCode == 200) {
     return parseItems(response.body);
