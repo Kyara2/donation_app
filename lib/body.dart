@@ -33,18 +33,18 @@ class Body extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                          categories[index].icon,
-                          color: Colors.white,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          categories[index].name,
-                          style: const TextStyle(
+                            categories[index].icon,
                             color: Colors.white,
-                            fontSize: 14,
                           ),
-                        ),
-                      ],
+                          const SizedBox(height: 8),
+                          Text(
+                            categories[index].name,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
                       ),
                     ));
               },
@@ -59,24 +59,27 @@ class Body extends StatelessWidget {
                 return ListView.builder(
                     itemCount: snapshot.data!.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Card(
-                        child: Column(
-                          children: <Widget>[
-                            Image.network(
-                              snapshot.data![index].imageUrl[0],
-                              fit: BoxFit.cover,
-                              height: 150,
-                            ),
-                            ListTile(
-                              title: Text(snapshot.data![index].title),
-                              subtitle: Text(snapshot.data![index].description),
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => ItemDetail(
-                                        item: snapshot.data![index])));
-                              },
-                            ),
-                          ],
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  ItemDetail(item: snapshot.data![index])));
+                        },
+                        child: Card(
+                          child: Column(
+                            children: <Widget>[
+                              Image.network(
+                                snapshot.data![index].imageUrl[0],
+                                fit: BoxFit.cover,
+                                height: 150,
+                              ),
+                              ListTile(
+                                title: Text(snapshot.data![index].title),
+                                subtitle:
+                                    Text(snapshot.data![index].description),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     });
