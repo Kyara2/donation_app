@@ -32,32 +32,32 @@ dependencies:
   flutter:
     sdk: flutter
 
-  http:
+  http: any
 
-  carousel_slider:
+  carousel_slider: any
 
-  flutter_chat_ui:
+  flutter_chat_ui: any
 
-  file_picker:
+  file_picker: any
 
-  image_picker:
+  image_picker: any
 
-  open_filex:
+  open_filex: any
 
-  mime:
+  mime: any
 
-  uuid:
+  uuid: any
 
-  path_provider:
+  path_provider: any
 
-  flutter_chat_types:
+  flutter_chat_types: any
 
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons:
-  google_fonts:
+  cupertino_icons: any
+  google_fonts: any
 # caso não funcione com o pubget, rodar "flutter pub add flutter_launcher_icons" e 
 # "flutter pub run flutter_launcher_icons"
   flutter_launcher_icons: ^0.11.0
