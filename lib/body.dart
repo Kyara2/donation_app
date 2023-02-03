@@ -26,7 +26,7 @@ class Body extends StatelessWidget {
                       height: double.infinity,
                       width: 120,
                       decoration: BoxDecoration(
-                        color: Colors.indigo[300],
+                        color: Colors.indigoAccent,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(
