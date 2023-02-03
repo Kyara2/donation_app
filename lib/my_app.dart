@@ -1,3 +1,4 @@
+import 'package:donation_app/account.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'body.dart';
@@ -26,15 +27,16 @@ class MyApp extends StatelessWidget {
                 child: Text('iDonate'),
               ),
               ListTile(
-                title: const Text('Configurações'),
+                title: const Text('Minha Conta'),
                 onTap: () {
-                  // Handle tap
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const MyAccountPage()));
                 },
               ),
               ListTile(
                 title: const Text('Sair'),
                 onTap: () {
-                  Future.delayed(const Duration(milliseconds: 1000), () {
+                  Future.delayed(const Duration(milliseconds: 100), () {
                     SystemChannels.platform.invokeMethod('SystemNavigator.pop');
                   });
                 },

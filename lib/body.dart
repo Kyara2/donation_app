@@ -86,7 +86,7 @@ class Body extends StatelessWidget {
               } else if (snapshot.hasError) {
                 return Text(snapshot.error.toString());
               }
-              return const CircularProgressIndicator();
+              return const Center(child: CircularProgressIndicator());
             },
           ),
         ),

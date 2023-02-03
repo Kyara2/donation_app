@@ -10,7 +10,7 @@ List<Item> parseItems(String responseBody) {
 
 Future<List<Item>> fetchItem() async {
   final response =
-      await http.get(Uri.parse("http://192.168.0.223:8080/announcements")); //mudar
+      await http.get(Uri.parse("http://192.168.0.88/announcements")); //mudar
 
   if (response.statusCode == 200) {
     return parseItems(response.body);
