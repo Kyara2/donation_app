@@ -1,10 +1,13 @@
-import 'item.dart';
 import 'package:donation_app/item_detail.dart';
+import 'package:donation_app/main.dart';
 import 'package:flutter/material.dart';
+
 import 'category.dart';
+import 'item.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,7 +29,7 @@ class Body extends StatelessWidget {
                       height: double.infinity,
                       width: 120,
                       decoration: BoxDecoration(
-                        color: Colors.indigoAccent,
+                        color: const Color(0xFF1D2766), //1D2766
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(
@@ -66,17 +69,28 @@ class Body extends StatelessWidget {
                                   ItemDetail(item: snapshot.data![index])));
                         },
                         child: Card(
+                          color: colorCustom,
+                          shadowColor: colorCustom.shade600,
                           child: Column(
                             children: <Widget>[
-                              Image.network(
-                                snapshot.data![index].imageUrl[0],
-                                fit: BoxFit.cover,
-                                height: 150,
-                              ),
                               ListTile(
-                                title: Text(snapshot.data![index].title),
-                                subtitle:
-                                    Text(snapshot.data![index].description),
+                                leading: Image.network(
+                                  snapshot.data![index].imageUrl[0],
+                                  fit: BoxFit.cover,
+                                  //height: 150,
+                                ),
+                                title: Text(snapshot.data![index].title,
+                                    style:
+                                        const TextStyle(color: Colors.white)),
+                                subtitle: Text(
+                                    snapshot.data![index].description,
+                                    style:
+                                        const TextStyle(color: Colors.white)),
+                                shape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                      color: Color(0xFF1D2766), width: 1),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
                               ),
                             ],
                           ),

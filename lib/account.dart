@@ -19,17 +19,26 @@ class _MyAccountPageState extends State<MyAccountPage> {
           ListTile(
             leading: Image.network(
                 "https://cdn.folhape.com.br/img/pc/450/450/dn_arquivo/2022/12/32ma2eh-preview-1.jpg"),
-            title: const Text("Usuário"),
-            subtitle: const Text("doador123"),
+            title: const Text("Usuário", style: TextStyle(color: Colors.white)),
+            subtitle:
+                const Text("doador123", style: TextStyle(color: Colors.white)),
           ),
           const ListTile(
-            leading: Icon(Icons.email),
-            title: Text("Email"),
-            subtitle: Text("doador123@brturbo.com"),
+            leading: Icon(
+              Icons.email,
+              color: Colors.white,
+            ),
+            title: Text("Email", style: TextStyle(color: Colors.white)),
+            subtitle: Text("doador123@brturbo.com",
+                style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text("Configurações"),
+            leading: const Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            title: const Text("Configurações",
+                style: TextStyle(color: Colors.white)),
             onTap: () {},
           ),
         ],

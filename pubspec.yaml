@@ -61,6 +61,8 @@ dependencies:
 # caso não funcione com o pubget, rodar "flutter pub add flutter_launcher_icons" e 
 # "flutter pub run flutter_launcher_icons"
   flutter_launcher_icons: ^0.11.0
+  flutter_login_template: ^1.1.0
+  material_color_generator: ^1.1.0
 
 dev_dependencies:
   flutter_test:

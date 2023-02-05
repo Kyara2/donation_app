@@ -1,16 +1,22 @@
 import 'package:donation_app/account.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'body.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('IDonate'),
+        title: const Text('IDonate')
       ),
       body: const Body(),
       drawer: Theme(
@@ -24,7 +30,7 @@ class MyApp extends StatelessWidget {
                 decoration: BoxDecoration(
                     //color: Color(0xFF0E1647),
                     ),
-                child: Text('iDonate'),
+                child: Text('IDonate'),
               ),
               ListTile(
                 title: const Text('Minha Conta'),

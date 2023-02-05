@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'my_app.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -25,14 +26,17 @@ class SplashScreenState extends State<SplashScreen> {
           return Text("Error: ${snapshot.error}");
         } else {
           return Scaffold(
-            body: Container(
-              color: Colors.indigo,
-              child: const Center(
-                child: Text(
-                  'iDonate',
-                  style: TextStyle(color: Colors.white, fontSize: 60),
-                ),
-              ),
+            body: Center(
+              child: RichText(
+                  text: const TextSpan(
+                      text: 'I',
+                      style: TextStyle(color: Colors.white, fontSize: 60),
+                      children: <TextSpan>[
+                    TextSpan(
+                        text: 'Donate',
+                        style:
+                            TextStyle(color: Colors.deepOrange, fontSize: 60))
+                  ])),
             ),
           );
         }
