@@ -15,11 +15,6 @@ Future<AccountDetails> loadAccountDetails() async {
 
 class _MyAccountPageState extends State<MyAccountPage> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
