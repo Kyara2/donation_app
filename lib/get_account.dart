@@ -13,7 +13,7 @@ AccountDetails parseAccountDetails(String responseBody) {
 
 Map<String, String> queryParameters = {"email": "teste2@email.com"};
 
-final newURI = Uri.parse("http://10.0.2.2:8080/users").replace(queryParameters: queryParameters);
+final newURI = Uri.parse("https://si20222api-production.up.railway.app/users").replace(queryParameters: queryParameters);
 
 Future<AccountDetails> fetchAccountDetails() async {
   print(newURI);

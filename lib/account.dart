@@ -10,6 +10,7 @@ class MyAccountPage extends StatefulWidget {
 
 Future<AccountDetails> loadAccountDetails() async {
   var response = await fetchAccountDetails();
+  print(response);
   return response;
 }
 
@@ -24,36 +25,37 @@ class _MyAccountPageState extends State<MyAccountPage> {
             future: loadAccountDetails(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                print(snapshot.data?.name);
-                Column(
-                  children: [
-                    ListTile(
-                      leading: Image.network(snapshot.data!.profileImage),
-                      title: Text("Usuário",
-                          style: TextStyle(color: Colors.black)),
-                      subtitle: Text(snapshot.data!.name,
-                          style: TextStyle(color: Colors.white)),
-                    ),
-                    ListTile(
-                      leading: Icon(
-                        Icons.email,
-                        color: Colors.white,
+                return Container(
+                  child: Column(
+                    children: [
+                      ListTile(
+                        leading: Image.network(snapshot.data!.profileImage),
+                        title: Text("Usuário",
+                            style: TextStyle(color: Colors.black)),
+                        subtitle: Text(snapshot.data!.name,
+                            style: TextStyle(color: Colors.white)),
                       ),
-                      title:
-                          Text("Email", style: TextStyle(color: Colors.white)),
-                      subtitle: Text(snapshot.data!.email,
-                          style: TextStyle(color: Colors.white)),
-                    ),
-                    ListTile(
-                      leading: const Icon(
-                        Icons.settings,
-                        color: Colors.white,
+                      ListTile(
+                        leading: Icon(
+                          Icons.email,
+                          color: Colors.white,
+                        ),
+                        title:
+                        Text("Email", style: TextStyle(color: Colors.white)),
+                        subtitle: Text(snapshot.data!.email,
+                            style: TextStyle(color: Colors.white)),
                       ),
-                      title: const Text("Configurações",
-                          style: TextStyle(color: Colors.white)),
-                      onTap: () {},
-                    ),
-                  ],
+                      ListTile(
+                        leading: const Icon(
+                          Icons.settings,
+                          color: Colors.white,
+                        ),
+                        title: const Text("Configurações",
+                            style: TextStyle(color: Colors.white)),
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
                 );
               } else if (snapshot.hasError) {
                 return Text(snapshot.error.toString());
@@ -62,3 +64,4 @@ class _MyAccountPageState extends State<MyAccountPage> {
             }));
   }
 }
+
