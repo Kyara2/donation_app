@@ -40,8 +40,8 @@ class _MyAccountPageState extends State<MyAccountPage> {
                           Icons.email,
                           color: Colors.white,
                         ),
-                        title:
-                        const Text("Email", style: TextStyle(color: Colors.white)),
+                        title: const Text("Email",
+                            style: TextStyle(color: Colors.white)),
                         subtitle: Text(snapshot.data!.email,
                             style: const TextStyle(color: Colors.white)),
                       ),
@@ -64,4 +64,3 @@ class _MyAccountPageState extends State<MyAccountPage> {
             }));
   }
 }
-

@@ -13,7 +13,8 @@ AccountDetails parseAccountDetails(String responseBody) {
 
 Map<String, String> queryParameters = {"email": "teste2@email.com"};
 
-final newURI = Uri.parse("https://si20222api-production.up.railway.app/users").replace(queryParameters: queryParameters);
+final newURI = Uri.parse("https://si20222api-production.up.railway.app/users")
+    .replace(queryParameters: queryParameters);
 
 Future<AccountDetails> fetchAccountDetails() async {
   //print(newURI);
@@ -33,13 +34,12 @@ class AccountDetails {
   final String profileImage;
   final String createdAt;
 
-  const AccountDetails({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.profileImage,
-    required this.createdAt
-  });
+  const AccountDetails(
+      {required this.id,
+      required this.name,
+      required this.email,
+      required this.profileImage,
+      required this.createdAt});
 
   factory AccountDetails.fromJson(Map<String, dynamic> json) {
     return AccountDetails(

@@ -72,9 +72,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
               _isLoading
                   ? const CircularProgressIndicator()
                   : ElevatedButton(
-                onPressed: _submit,
-                child: const Text("Criar conta"),
-              ),
+                      onPressed: _submit,
+                      child: const Text("Criar conta"),
+                    ),
             ],
           ),
         ),
@@ -87,7 +87,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
       _formKey.currentState?.save();
       setState(() => _isLoading = true);
       try {
-        final account = await createAccount(_name, _email, _password, _profileImage);
+        final account =
+            await createAccount(_name, _email, _password, _profileImage);
         // Do something with the created account
         print(account);
       } catch (e) {

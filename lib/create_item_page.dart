@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'create_item.dart';
 import 'category.dart';
+import 'create_item.dart';
 import 'get_account.dart';
 
 class CreateItemPage extends StatefulWidget {
@@ -28,7 +28,6 @@ class _CreateItemPageState extends State<CreateItemPage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +41,9 @@ class _CreateItemPageState extends State<CreateItemPage> {
           child: Column(
             children: [
               TextFormField(
-                decoration: const InputDecoration(labelText: "Item", hintStyle: TextStyle(color: Colors.white)),
+                decoration: const InputDecoration(
+                    labelText: "Item",
+                    hintStyle: TextStyle(color: Colors.white)),
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Insira o nome do item";
@@ -52,7 +53,9 @@ class _CreateItemPageState extends State<CreateItemPage> {
                 onSaved: (value) => _name = value!,
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: "Descrição", hintStyle: TextStyle(color: Colors.white)),
+                decoration: const InputDecoration(
+                    labelText: "Descrição",
+                    hintStyle: TextStyle(color: Colors.white)),
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Insira a descrição do item";
@@ -62,7 +65,9 @@ class _CreateItemPageState extends State<CreateItemPage> {
                 onSaved: (value) => _description = value!,
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: "Endereço", hintStyle: TextStyle(color: Colors.white)),
+                decoration: const InputDecoration(
+                    labelText: "Endereço",
+                    hintStyle: TextStyle(color: Colors.white)),
                 validator: (value) {
                   if (value!.isEmpty) {
                     return "Insira o endereço";
@@ -72,7 +77,9 @@ class _CreateItemPageState extends State<CreateItemPage> {
                 onSaved: (value) => _address = value!,
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: "CEP", hintStyle: TextStyle(color: Colors.white)),
+                decoration: const InputDecoration(
+                    labelText: "CEP",
+                    hintStyle: TextStyle(color: Colors.white)),
                 obscureText: true,
                 validator: (value) {
                   if (value!.isEmpty) {

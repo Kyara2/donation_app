@@ -16,9 +16,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('IDonate')
-      ),
+      appBar: AppBar(title: const Text('IDonate')),
       body: const Body(),
       drawer: Theme(
         data: Theme.of(context).copyWith(

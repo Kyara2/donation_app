@@ -14,8 +14,4 @@ List<Category> categories = [
   Category(name: 'Smartphones', icon: Icons.smartphone_rounded),
   Category(name: 'Eletrônicos', icon: Icons.devices_rounded),
   Category(name: 'Outros', icon: Icons.more_horiz_rounded),
-
-
 ];
-
-

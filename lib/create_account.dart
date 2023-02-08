@@ -13,7 +13,8 @@ AccountDetails parseAccountDetails(String responseBody) {
 
 final newURI = Uri.parse("https://si20222api-production.up.railway.app/users");
 
-Future<AccountDetails> createAccount(String name, String email, String password, String profileImage) async {
+Future<AccountDetails> createAccount(
+    String name, String email, String password, String profileImage) async {
   final response = await http.post(
     newURI,
     headers: {"Content-Type": "application/json"},
@@ -38,13 +39,12 @@ class AccountDetails {
   final String profileImage;
   final String createdAt;
 
-  const AccountDetails({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.profileImage,
-    required this.createdAt
-  });
+  const AccountDetails(
+      {required this.id,
+      required this.name,
+      required this.email,
+      required this.profileImage,
+      required this.createdAt});
 
   factory AccountDetails.fromJson(Map<String, dynamic> json) {
     return AccountDetails(
