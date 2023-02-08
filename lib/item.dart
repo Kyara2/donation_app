@@ -16,7 +16,7 @@ Future<List<Item>> fetchItem() async {
   if (response.statusCode == 200) {
     return parseItems(response.body);
   } else {
-    throw Exception('Failed to load item');
+    throw Exception('Erro ao carregar anúncios');
   }
 }
 

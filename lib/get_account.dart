@@ -23,7 +23,7 @@ Future<AccountDetails> fetchAccountDetails() async {
     //print(response.body);
     return AccountDetails.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('Failed to load account details');
+    throw Exception('Erro ao carregar dados da conta');
   }
 }
 

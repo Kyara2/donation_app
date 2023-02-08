@@ -28,7 +28,7 @@ Future<AccountDetails> createAccount(
   if (response.statusCode == 201) {
     return AccountDetails.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('Failed to create account');
+    throw Exception('Erro ao criar conta');
   }
 }
 

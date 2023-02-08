@@ -39,6 +39,6 @@ Future<Item> createItem(
   if (response.statusCode == 201) {
     return Item.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('Failed to create Item');
+    throw Exception('Erro ao criar item');
   }
 }

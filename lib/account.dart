@@ -31,7 +31,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
                       ListTile(
                         leading: Image.network(snapshot.data!.profileImage),
                         title: const Text("Usuário",
-                            style: TextStyle(color: Colors.black)),
+                            style: TextStyle(color: Colors.white)),
                         subtitle: Text(snapshot.data!.name,
                             style: const TextStyle(color: Colors.white)),
                       ),

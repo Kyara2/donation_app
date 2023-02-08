@@ -17,7 +17,7 @@ class _CreateItemPageState extends State<CreateItemPage> {
   late String _description;
   late String _address;
   late String _postalCode;
-  late List<String> _profileImage = [''];
+  late String _profileImage = ' ';
   String _selectedCategoryName = categories[0].name;
   String _userId = 'de80cc06-c69f-4e16-a6e7-c641d1cb62ae';
 
@@ -101,7 +101,7 @@ class _CreateItemPageState extends State<CreateItemPage> {
                   final image = await ImagePicker()
                       .pickImage(source: ImageSource.gallery);
                   setState(() {
-                    _profileImage = image?.path as List<String>;
+                    _profileImage = image!.path;
                   });
                 },
               ),
