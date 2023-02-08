@@ -20,7 +20,7 @@ class _CreateItemPageState extends State<CreateItemPage> {
   late String _description;
   late String _address;
   late String _postalCode;
-  late String _profileImage = ' ';
+  late String _itemImage = ' ';
   String _selectedCategoryName = categories[0].name;
   String _userId = 'de80cc06-c69f-4e16-a6e7-c641d1cb62ae';
 
@@ -43,54 +43,80 @@ class _CreateItemPageState extends State<CreateItemPage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              TextFormField(
-                decoration: const InputDecoration(
+              Theme(
+                data: Theme.of(context).copyWith(hintColor: Colors.white),
+                child: TextFormField(
+                  decoration: const InputDecoration(
                     labelText: "Item",
-                    hintStyle: TextStyle(color: Colors.white)),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Insira o nome do item";
-                  }
-                  return null;
-                },
-                onSaved: (value) => _name = value!,
+                    hintText: "Insira o nome do item",
+                  ),
+                  cursorColor: Colors.white,
+                  style: TextStyle(color: Colors.white),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Insira o nome do item";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _name = value!,
+                ),
               ),
-              TextFormField(
-                decoration: const InputDecoration(
+              Theme(
+                data: Theme.of(context).copyWith(hintColor: Colors.white),
+                child: TextFormField(
+                  decoration: const InputDecoration(
                     labelText: "Descrição",
-                    hintStyle: TextStyle(color: Colors.white)),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Insira a descrição do item";
-                  }
-                  return null;
-                },
-                onSaved: (value) => _description = value!,
+                    hintText: "Insira a descrição do item",
+                  ),
+                  cursorColor: Colors.white,
+                  style: TextStyle(color: Colors.white),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Insira a descrição do item";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _description = value!,
+                ),
               ),
-              TextFormField(
-                decoration: const InputDecoration(
+              Theme(
+                data: Theme.of(context).copyWith(hintColor: Colors.white),
+                child: TextFormField(
+                  decoration: const InputDecoration(
                     labelText: "Endereço",
-                    hintStyle: TextStyle(color: Colors.white)),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Insira o endereço";
-                  }
-                  return null;
-                },
-                onSaved: (value) => _address = value!,
+                    hintText: "Insira o endereço",
+
+                  ),
+                  cursorColor: Colors.white,
+                  style: TextStyle(color: Colors.white),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Insira o endereço";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _address = value!,
+                ),
               ),
-              TextFormField(
-                decoration: const InputDecoration(
-                    labelText: "CEP",
-                    hintStyle: TextStyle(color: Colors.white)),
-                obscureText: true,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return "Insira o CEP";
-                  }
-                  return null;
-                },
-                onSaved: (value) => _postalCode = value!,
+              Theme(
+                data: Theme.of(context).copyWith(hintColor: Colors.white),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                      labelText: "CEP",
+                      hintText: "Insira o CEP",
+                      hintStyle: TextStyle(color: Colors.white)),
+                  obscureText: false,
+                  cursorColor: Colors.white,
+                  style: TextStyle(color: Colors.white),
+
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Insira o CEP";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) => _postalCode = value!,
+                ),
               ),
               ElevatedButton(
                 style: ButtonStyle(
@@ -106,15 +132,18 @@ class _CreateItemPageState extends State<CreateItemPage> {
                   if (image != null) {
                     setState(() {
                       File imagePath = File(image.path);
-                      _profileImage = basename(imagePath.path);
-                      print(_profileImage);
+                      _itemImage = basename(imagePath.path);
+                      print(_itemImage);
                     });
                   }
                 },
               ),
               DropdownButtonFormField<String>(
-                hint: const Text('Categoria',
-                    style: TextStyle(color: Colors.black)),
+                decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+                hint: const Text('Categoria', style: TextStyle(color: Colors.black)),
                 value: _selectedCategoryName,
                 onChanged: (dynamic value) {
                   setState(() {
@@ -160,7 +189,7 @@ class _CreateItemPageState extends State<CreateItemPage> {
       setState(() => _isLoading = true);
       try {
         final Item = await createItem(_name, _description, _address,
-            _postalCode, _userId, _profileImage, _selectedCategoryName);
+            _postalCode, _userId, _itemImage, _selectedCategoryName);
         // Do something with the created Item
         print(Item);
       } catch (e) {

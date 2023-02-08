@@ -14,6 +14,7 @@ void main() {
           bodyLarge: TextStyle(color: Colors.white),
           titleLarge: TextStyle(color: Colors.white),
           titleSmall: TextStyle(color: Colors.white),
+          labelMedium: TextStyle(color: Colors.white),
         )),
     home: const SplashScreen(),
   ));
