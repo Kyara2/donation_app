@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
 
 import 'category.dart';
 import 'create_item.dart';
@@ -100,9 +103,13 @@ class _CreateItemPageState extends State<CreateItemPage> {
                 onPressed: () async {
                   final image = await ImagePicker()
                       .pickImage(source: ImageSource.gallery);
-                  setState(() {
-                    _profileImage = image!.path;
-                  });
+                  if (image != null) {
+                    setState(() {
+                      File imagePath = File(image.path);
+                      _profileImage = basename(imagePath.path);
+                      print(_profileImage);
+                    });
+                  }
                 },
               ),
               DropdownButtonFormField<String>(
@@ -152,15 +159,8 @@ class _CreateItemPageState extends State<CreateItemPage> {
       _formKey.currentState?.save();
       setState(() => _isLoading = true);
       try {
-        final Item = await createItem(
-            _name,
-            _description,
-            _address,
-            _postalCode,
-            _userId,
-            _profileImage[0],
-            _profileImage[0],
-            _selectedCategoryName);
+        final Item = await createItem(_name, _description, _address,
+            _postalCode, _userId, _profileImage, _selectedCategoryName);
         // Do something with the created Item
         print(Item);
       } catch (e) {

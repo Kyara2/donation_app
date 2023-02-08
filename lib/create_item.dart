@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:dio/dio.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -11,34 +12,30 @@ Item parseItem(String responseBody) {
   return parsed.map<Item>((json) => Item.fromJson(json)).toList();
 }
 
-final newURI = Uri.parse("https://si20222api-production.up.railway.app/Items");
+final newURI =
+    Uri.parse("https://si20222api-production.up.railway.app/announcements");
 
-Future<Item> createItem(
-    String name,
-    String description,
-    String address,
-    String postalCode,
-    String userId,
-    String image_1,
-    String image_2,
-    String category) async {
-  final response = await http.post(
-    newURI,
-    headers: {"Content-Type": "application/json"},
-    body: jsonEncode({
-      "name": name,
-      "description": description,
-      "address": address,
-      "postal_code": postalCode,
-      "user_id": userId,
-      "image_1": image_1,
-      "image_2": image_2,
-      "category": category,
-    }),
-  );
+Future<Item> createItem(String name, String description, String address,
+    String postalCode, String userId, String image_1, String category) async {
+  var map = <String, dynamic>{};
+  map['name'] = name;
+  map['description'] = description;
+  map['address'] = address;
+  map['postal_code'] = postalCode;
+  map['user_id'] = userId;
+  map['image_1'] = image_1;
+  map['category'] = category;
+
+  var dio = Dio();
+  FormData formData = new FormData.fromMap(map);
+
+  final response = await dio.post(
+      "https://si20222api-production.up.railway.app/announcements",
+      data: formData);
   if (response.statusCode == 201) {
-    return Item.fromJson(jsonDecode(response.body));
+    return Item.fromJson(jsonDecode(response.data));
   } else {
+    print(response.data);
     throw Exception('Erro ao criar item');
   }
 }
