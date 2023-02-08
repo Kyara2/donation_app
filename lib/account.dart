@@ -10,7 +10,7 @@ class MyAccountPage extends StatefulWidget {
 
 Future<AccountDetails> loadAccountDetails() async {
   var response = await fetchAccountDetails();
-  print(response);
+  //print(response);
   return response;
 }
 
@@ -19,7 +19,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Minha Conta"),
+          title: const Text("Minha conta"),
         ),
         body: FutureBuilder<AccountDetails>(
             future: loadAccountDetails(),
@@ -30,20 +30,20 @@ class _MyAccountPageState extends State<MyAccountPage> {
                     children: [
                       ListTile(
                         leading: Image.network(snapshot.data!.profileImage),
-                        title: Text("Usuário",
+                        title: const Text("Usuário",
                             style: TextStyle(color: Colors.black)),
                         subtitle: Text(snapshot.data!.name,
-                            style: TextStyle(color: Colors.white)),
+                            style: const TextStyle(color: Colors.white)),
                       ),
                       ListTile(
-                        leading: Icon(
+                        leading: const Icon(
                           Icons.email,
                           color: Colors.white,
                         ),
                         title:
-                        Text("Email", style: TextStyle(color: Colors.white)),
+                        const Text("Email", style: TextStyle(color: Colors.white)),
                         subtitle: Text(snapshot.data!.email,
-                            style: TextStyle(color: Colors.white)),
+                            style: const TextStyle(color: Colors.white)),
                       ),
                       ListTile(
                         leading: const Icon(

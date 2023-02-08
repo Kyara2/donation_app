@@ -36,7 +36,7 @@ dependencies:
 
   carousel_slider: any
 
-  image_picker: any
+  image_picker: ^0.8.6+1
 
   open_filex: any
 

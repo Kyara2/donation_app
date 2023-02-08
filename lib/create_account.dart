@@ -11,18 +11,23 @@ AccountDetails parseAccountDetails(String responseBody) {
       .toList();
 }
 
-Map<String, String> queryParameters = {"email": "teste2@email.com"};
+final newURI = Uri.parse("https://si20222api-production.up.railway.app/users");
 
-final newURI = Uri.parse("https://si20222api-production.up.railway.app/users").replace(queryParameters: queryParameters);
-
-Future<AccountDetails> fetchAccountDetails() async {
-  //print(newURI);
-  final response = await http.get(newURI); //mudar
-  if (response.statusCode == 200) {
-    //print(response.body);
+Future<AccountDetails> createAccount(String name, String email, String password, String profileImage) async {
+  final response = await http.post(
+    newURI,
+    headers: {"Content-Type": "application/json"},
+    body: jsonEncode({
+      "name": name,
+      "email": email,
+      "password": password,
+      "profile_image": profileImage
+    }),
+  );
+  if (response.statusCode == 201) {
     return AccountDetails.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('Failed to load account details');
+    throw Exception('Failed to create account');
   }
 }
 

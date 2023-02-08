@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'body.dart';
+import 'create_item_page.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -33,10 +34,17 @@ class _MyAppState extends State<MyApp> {
                 child: Text('IDonate'),
               ),
               ListTile(
-                title: const Text('Minha Conta'),
+                title: const Text('Minha conta'),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const MyAccountPage()));
+                },
+              ),
+              ListTile(
+                title: const Text('Novo anúncio'),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CreateItemPage()));
                 },
               ),
               ListTile(
